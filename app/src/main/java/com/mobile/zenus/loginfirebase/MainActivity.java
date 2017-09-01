@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     private Button mLogin;
 
-    Toolbar toolBar;
+    TextView mTxtLogado;
 
     GoogleApiClient mGoogleApiClient;
 
@@ -55,9 +56,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
         mLogin = (Button) findViewById(R.id.btnLogin);
 
-        toolBar = (Toolbar) findViewById(R.id.toolbar);
+        mTxtLogado = (TextView) findViewById(R.id.txtLogado);
 
-        setSupportActionBar(toolBar);
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -89,13 +90,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
 
-                    toolBar.setTitle(user.getEmail());
+                    mTxtLogado.setText(user.getEmail());
 
                     // User is signed in
 
                 } else {
                     // User is signed out
-                    toolBar.setTitle("Falta Logar");
+                    mTxtLogado.setText("Deslogado");
                 }
                 // ...
             }
@@ -121,10 +122,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
 
-            toolBar.setTitle(acct.getDisplayName());
+            mTxtLogado.setText(acct.getDisplayName());
 
         } else {
-            toolBar.setTitle("Usuário não autenticado");
+            mTxtLogado.setText("Usuário não autenticado");
         }
     }
 
@@ -139,6 +140,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         super.onStop();
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
+    public void logof(View view){
+
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+            mTxtLogado.setText("Home");
         }
     }
 
@@ -200,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                         }else{
                             Toast.makeText(MainActivity.this, "Usuario autenticado com sucesso",
                                     Toast.LENGTH_SHORT).show();
-                            toolBar.setTitle(email);
+                            mTxtLogado.setText(email);
 
                         }
 

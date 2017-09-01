@@ -7,75 +7,117 @@
     android:layout_height="match_parent"
     tools:context="com.mobile.zenus.loginfirebase.MainActivity">
 
-    <EditText
-        android:id="@+id/edtSenha"
-        android:layout_width="333dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Senha"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="105dp"
-        android:layout_marginBottom="18dp"
-        android:layout_above="@+id/btnLogin"
-        android:layout_alignStart="@+id/edtNome"
-        android:layout_alignEnd="@+id/edtNome" />
 
-    <Button
-        android:id="@+id/btnLogin"
+    <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/edtNome"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="40dp"
+            android:paddingBottom="40dp"
+            android:text="Login"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="italic"
+            style="@style/TextAppearance.AppCompat.Caption" />
+
+        <EditText
+            android:id="@+id/edtNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/edtSenha"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="25dp"
+            tools:layout_editor_absoluteY="41dp" />
+
+        <EditText
+            android:id="@+id/edtSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnLogin"
+            android:layout_alignEnd="@+id/edtNome"
+            android:layout_alignStart="@+id/edtNome"
+            android:layout_marginBottom="18dp"
+            android:ems="10"
+            android:hint="Senha"
+            android:inputType="textPassword"
+            tools:layout_editor_absoluteX="25dp"
+            tools:layout_editor_absoluteY="105dp" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/edtNome"
+            android:layout_alignStart="@+id/edtSenha"
+            android:layout_centerVertical="true"
+            android:onClick="loginUsuario"
+            android:text="Logon - email "
+            tools:layout_editor_absoluteX="25dp"
+            tools:layout_editor_absoluteY="178dp" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_alignEnd="@+id/btnLogin"
+            android:layout_alignStart="@+id/btnLogin"
+            android:layout_below="@+id/btnLogin"
+            android:layout_marginTop="29dp"
+            android:layout_weight="1"
+            android:onClick="logof"
+            android:text="Loggof"
+            tools:layout_editor_absoluteX="25dp"
+            tools:layout_editor_absoluteY="178dp" />
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="43dp"
-        android:onClick="loginUsuario"
-        android:text="Logar"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="178dp"
-        tools:text="Logar"
-        android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/edtSenha"
-        android:layout_alignEnd="@+id/edtNome" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="43dp"
-        android:layout_alignEnd="@+id/btnLogin"
-        android:layout_alignStart="@+id/btnLogin"
-        android:layout_below="@+id/btnLogin"
-        android:layout_marginTop="29dp"
-        android:onClick="criarUsuario"
-        android:text="Criar Usuário"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="178dp" />
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button3"
-        android:layout_alignStart="@+id/button3"
-        android:layout_marginTop="31dp" />
-
-    <EditText
-        android:id="@+id/edtNome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/edtSenha"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="41dp" />
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/edtNome"
+        android:orientation="horizontal"
+        android:layout_below="@+id/button4"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="98dp"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        android:layout_marginTop="28dp">
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="173dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/button3"
+            android:layout_below="@+id/button3"
+            android:layout_marginTop="31dp">
+
+        </com.google.android.gms.common.SignInButton>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignEnd="@+id/btnLogin"
+            android:layout_alignStart="@+id/btnLogin"
+            android:layout_below="@+id/btnLogin"
+            android:layout_marginTop="29dp"
+            android:layout_weight="1"
+            android:onClick="criarUsuario"
+            android:text="Criar Usuário"
+            tools:layout_editor_absoluteX="25dp"
+            tools:layout_editor_absoluteY="178dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtLogado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginTop="17dp"
+        android:text="Deslogado" />
+
 </RelativeLayout>
